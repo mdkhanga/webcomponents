@@ -2,14 +2,19 @@ import Layout from "@/components/Layout"
 import Link from 'next/link'
 
 
-export default function HomePage({users}) {
-  console.log(users)
+export default function HomePage({accounts}) {
+  console.log(accounts)
   return (
     <Layout> 
-      <h1> My Users</h1>
+      <h1> My Accounts</h1>
      {
-        users.map(user => (
-          <h2 key={user.username}> hello {user.email}</h2>
+        accounts.map(account => (
+          <div>
+          {account.name} <br/>
+          {account.type} <br/>
+          {account.balance} <br/> 
+          <br/>
+          </div>
         ))
 
       }
@@ -22,13 +27,13 @@ export default function HomePage({users}) {
 }
 
 export async function getServerSideProps() {
-  const res = await fetch('http://localhost:8080/v1/user/users')
-  const users = await res.json()
+  const res = await fetch('http://localhost:8080/v1/accounts/manoj')
+  const accounts = await res.json()
 
-  console.log(users)
+  console.log(accounts)
 
   return {
-    props: {users}
+    props: {accounts}
   }
 
 }
