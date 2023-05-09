@@ -1,5 +1,6 @@
 import Layout from "@/components/Layout"
 import Link from 'next/link'
+import {API_URL} from "@/config/index"
 
 
 export default function HomePage({accounts}) {
@@ -27,7 +28,7 @@ export default function HomePage({accounts}) {
 }
 
 export async function getServerSideProps() {
-  const res = await fetch('http://localhost:8080/v1/accounts/manoj')
+  const res = await fetch(`${API_URL}/v1/accounts/manoj`)
   const accounts = await res.json()
 
   console.log(accounts)
