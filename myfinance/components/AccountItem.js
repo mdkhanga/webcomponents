@@ -11,7 +11,7 @@ export default function AccountItem({account}) {
 				
 			</div>
 			<div className={styles.link}>
-				<Link className='btn' href={`/accounts/{account.name}`}>
+				<Link className='btn' href={`/accounts/${account.name}`}>
 					 Details
 				</Link>
 			</div>
