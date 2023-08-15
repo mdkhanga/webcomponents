@@ -16,6 +16,11 @@ export default function Header() {
                             Accounts
                         </Link>
                     </li>
+                    <li>
+                        <Link href="/accounts/add">
+                            Add Account
+                        </Link>
+                    </li>
                 </ul>
             </nav>
 
