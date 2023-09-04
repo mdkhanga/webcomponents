@@ -39,7 +39,7 @@ export default function AccountPage( {account} ) {
             <h3> {account.balance}</h3>
 
             
-            <Link href = "/edit"> Edit </Link>
+            <Link href = {`/accounts/edit/${account.name}`}> Edit </Link>
             <a href = "#" onClick = {(e, id) => deleteEvent(e, account.name)} > Delete </a>
         </Layout>
 
