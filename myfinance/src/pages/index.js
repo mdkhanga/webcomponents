@@ -14,8 +14,6 @@ export default function HomePage({accounts}) {
         ))
       }
       
-      <Link href="/about"> About</Link> <br/>
-      <Link href="/accounts"> Accounts</Link>
     </Layout>
 
   )

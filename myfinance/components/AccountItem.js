@@ -6,15 +6,14 @@ export default function AccountItem({account}) {
 	return (
 		<div className={styles.account}>
 			<div className={styles.info}>
-				<h3> {account.name}</h3>
-				<h4> {account.type}</h4>
-				
+				<Link href={`/accounts/${account.name}`}> <h3> {account.name}</h3> </Link>
 			</div>
-			<div className={styles.link}>
-				<Link className='btn' href={`/accounts/${account.name}`}>
-					 Details
-				</Link>
+
+			<div className={styles.info}>
+				<h3> $ {account.balance}</h3>
 			</div>
+
+			
 		</div>
 		
 	)
