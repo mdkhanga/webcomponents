@@ -38,9 +38,7 @@ if (loggedIn) {
 
   console.log("redering the page");
   return (
-    <main className={styles.main}>
-      <button onClick={() => {alert("hello")}}> Hello </button>
-      <br></br>
+    <main>
       {but}
     </main>
   )
