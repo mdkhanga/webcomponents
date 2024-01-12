@@ -1,0 +1,26 @@
+/* styles/Layout.module.css */
+.container {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+  }
+  
+  .header {
+	background-color: #333;
+	color: white;
+	padding: 1rem;
+	text-align: center;
+  }
+  
+  .main {
+	flex: 1;
+	padding: 1rem;
+  }
+  
+  .footer {
+	background-color: #333;
+	color: white;
+	text-align: center;
+	padding: 1rem;
+  }
+  
