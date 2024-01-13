@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
 import Cookies from 'js-cookie';
 
 
-export default function Home() {
+export default function Assets() {
 
   
   const router = useRouter();
@@ -39,7 +39,7 @@ const handleSignoff = () => {
   console.log("redering the page");
   return (
     <main>
-      <div> Welcome {username}</div>
+      <div> Assets for {username}</div>
       <button onClick={handleSignoff}> SignOff</button>
     </main>
   )
