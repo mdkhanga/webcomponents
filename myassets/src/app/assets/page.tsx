@@ -16,9 +16,11 @@ export default function Assets() {
  const [username, setUsername] = useState('');
  
 useEffect(() => {
+  
   const val = Cookies.get('username');
+  // alert('use effect called' + val);
   setUsername(val);
-  if (val === '') {
+  if (val == undefined || val === '') {
     // If the username cookie doesn't exist, redirect to the login page
     router.push('/signin');
   }
@@ -31,10 +33,6 @@ const handleSignoff = () => {
   setUsername('')
   router.push('/signin');
 }
-
-
- 
-
 
   console.log("redering the page");
   return (
