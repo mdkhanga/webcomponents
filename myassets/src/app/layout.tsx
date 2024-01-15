@@ -25,7 +25,7 @@ export default function RootLayout({
     <div className={styles.container}>
       
       <header className={styles.header}>
-        <h1>Your App Header: Welcome </h1>
+        <h1> Welcome to Assets </h1>
 
       </header>
 
