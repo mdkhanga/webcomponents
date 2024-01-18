@@ -42,7 +42,7 @@ const handleSignoff = () => {
         <li><a href="#contact">Contact</a></li>
         <li style={{float : 'right'}}><a href="#about">About</a></li>
       </ul>
-      <div className={styles.center}> Welcome {username}</div>
+      <div className={styles.mydiv}> Welcome {username}</div>
       <button onClick={handleSignoff}> SignOff</button>
     </main>
   )

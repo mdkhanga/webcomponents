@@ -4,11 +4,11 @@
   }
 
   .mydiv {
-	background-color: #ee0918;
-
+	background-color: #09ee28;
+	text-align: center;
   }
 
   .center {
 	text-align: center;
-	color: red;
+	background-color: #ee0918;
   }

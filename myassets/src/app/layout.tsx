@@ -25,14 +25,13 @@ export default function RootLayout({
     <div className={styles.container}>
       
       <header className={styles.header}>
-        <h1> Welcome to Assets </h1>
-
+         Welcome to assets
       </header>
 
       <main className={styles.main}>{children}</main>
 
       <footer className={styles.footer}>
-        <p>&copy; {new Date().getFullYear()} Your App Footer</p>
+        &copy; {new Date().getFullYear()} Your App Footer
       </footer>
     </div>
     </body>
