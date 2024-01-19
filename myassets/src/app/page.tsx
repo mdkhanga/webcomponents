@@ -25,9 +25,8 @@ useEffect(() => {
   }
 }, [username, router]); 
 
-
-
-const handleSignoff = () => {
+const handleSignoff = (e) => {
+  e.preventDefault();
   Cookies.remove('username');
   setUsername('')
   router.push('/signin');
@@ -37,10 +36,11 @@ const handleSignoff = () => {
   return (
     <main className={styles.myDiv}>
       <ul>
-        <li><a className={styles.active} href="#home">Home</a></li>
-        <li><a href="#news">News</a></li>
+        <li><a className={styles.active} href="/">Home</a></li>
+        <li><a href="/assets">Assets</a></li>
         <li><a href="#contact">Contact</a></li>
-        <li style={{float : 'right'}}><a href="#about">About</a></li>
+        <li style={{float : 'right'}}><a href="" onClick={handleSignoff}> Signoff </a></li>
+        <li style={{float : 'right'}}><a href=""> Hi {username} </a></li>
       </ul>
       <div className={styles.mydiv}> Welcome {username}</div>
       <button onClick={handleSignoff}> SignOff</button>
