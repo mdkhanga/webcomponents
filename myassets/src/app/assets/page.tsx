@@ -1,11 +1,12 @@
 'use client'
 import React from 'react'
-import Image from 'next/image'
+import Link from 'next/link'
 // import styles from './page.module.css'
 import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react';
 import Cookies from 'js-cookie';
 import styles from '@/app/ui/Home.module.css';
+import MenuBar from '@/app/ui/components/menubar';
 
 
 export default function Assets() {
@@ -37,16 +38,20 @@ const handleSignoff = (e) => {
 
   console.log("redering the page");
   return (
-    <main>
+    /* <main>
 		<ul>
-        <li><a className={styles.active} href="/">Home</a></li>
-        <li><a href="/assets">Assets</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li style={{float : 'right'}}><a href="" onClick={handleSignoff}> Signoff </a></li>
-        <li style={{float : 'right'}}><a href=""> Hi {username} </a></li>
+        <li><Link className={styles.active} href="/">Home</Link></li>
+        <li><Link href="/assets">Assets</Link></li>
+        <li><Link href="#contact">Contact</Link></li>
+        <li style={{float : 'right'}}><Link href="" onClick={handleSignoff}> Signoff </Link></li>
+        <li style={{float : 'right'}}><Link href=""> Hi {username} </Link></li>
       </ul>
       <div> Assets for {username}</div>
       <button onClick={handleSignoff}> SignOff</button>
-    </main>
+    </main> */
+	<main>
+	  <MenuBar/>
+      <div> Assets for {username}</div>
+    </main> 
   )
 }
