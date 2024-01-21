@@ -5,14 +5,14 @@ import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react';
 import Cookies from 'js-cookie';
-import styles from '@/app/ui/Home.module.css';
+import styles from '@/app/ui/styles/Home.module.css';
 import MenuBar from '@/app/ui/components/menubar';
 
 
 export default function Assets() {
 
   
-  const router = useRouter();
+ /* const router = useRouter();
  // Check if the username cookie exists
  
  const [username, setUsername] = useState('');
@@ -35,7 +35,7 @@ const handleSignoff = (e) => {
   setUsername('')
   router.push('/signin');
 }
-
+*/
   console.log("redering the page");
   return (
     /* <main>
@@ -49,9 +49,8 @@ const handleSignoff = (e) => {
       <div> Assets for {username}</div>
       <button onClick={handleSignoff}> SignOff</button>
     </main> */
-	<main>
+	<div>
 	  <MenuBar/>
-      <div> Assets for {username}</div>
-    </main> 
+    </div> 
   )
 }

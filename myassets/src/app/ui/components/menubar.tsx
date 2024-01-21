@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react';
 import Cookies from 'js-cookie';
-import styles from '@/app/ui/Home.module.css';
+import styles from '@/app/ui/styles/Home.module.css';
 
 export default function MenuBar() {
 

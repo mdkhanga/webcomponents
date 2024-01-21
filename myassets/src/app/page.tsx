@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react';
 import Cookies from 'js-cookie';
-import styles from '@/app/ui/Home.module.css';
+import styles from '@/app/ui/styles/Home.module.css';
 import MenuBar from '@/app/ui/components/menubar';
 
 
@@ -50,10 +50,12 @@ const handleSignoff = (e) => {
   ) */
 
   return (
-    <main className={styles.myDiv}>
+    
+    <div className={styles.myDiv}>
       <MenuBar/>
       <div className={styles.mydiv}> Welcome </div>
-    </main>
+    </div>
+    
   )
 
 }
