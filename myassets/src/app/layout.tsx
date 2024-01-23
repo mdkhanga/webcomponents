@@ -1,7 +1,8 @@
+'use client'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-import styles from '@/app/ui/Layout.module.css';
+import styles from '@/app/ui/styles/Layout.module.css';
 const inter = Inter({ subsets: ['latin'] })
 import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react';
@@ -23,7 +24,6 @@ export default function RootLayout({
     <html>
     <body>
     <div className={styles.container}>
-      
       <header className={styles.header}>
          Welcome to assets
       </header>

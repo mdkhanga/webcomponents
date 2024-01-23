@@ -2,9 +2,10 @@
 import React from 'react'
 import { useState } from 'react';
 import Image from 'next/image'
-import styles from './page.module.css'
+// import styles from './page.module.css'
 import { useRouter } from 'next/navigation'
 import Cookies from 'js-cookie';
+import styles from '@/app/ui/styles/Signin.module.css';
 
 export default function signin() {
 
@@ -35,6 +36,7 @@ export default function signin() {
 			// Redirect to a different page (e.g., dashboard)
 			// router.push('/dashboard');
 			router.push('/');
+			router.refresh();
 		  } else {
 			setError('Invalid username or password');
 		  }
@@ -44,17 +46,18 @@ export default function signin() {
 	};
 
 	return (
-			<div>
+			<div className ={styles.signin}>
 			  <h1>Login</h1>
 			  <form onSubmit={handleLogin}>
 				<label>
 				  Username:
+				</label>
+				<br/>
 				  <input
 					type="text"
 					value={username}
 					onChange={(e) => setUsername(e.target.value)}
 				  />
-				</label>
 				<br />
 				<label>
 				  Password:
