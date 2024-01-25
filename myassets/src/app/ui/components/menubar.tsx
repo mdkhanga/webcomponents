@@ -31,7 +31,7 @@ export default function MenuBar() {
 
 	return (
 		<ul>
-        <li><Link className={styles.active} href="/">Home</Link></li>
+        <li><Link href="/">Home</Link></li>
         <li><Link href="/assets">Assets</Link></li>
         <li><Link href="#contact">Contact</Link></li>
         <li style={{float : 'right'}}><Link href="" onClick={handleSignoff}> Signoff </Link></li>

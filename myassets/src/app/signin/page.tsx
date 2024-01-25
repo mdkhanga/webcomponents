@@ -47,13 +47,13 @@ export default function signin() {
 
 	return (
 			<div className ={styles.signin}>
-			  <h1>Login</h1>
-			  <form onSubmit={handleLogin}>
+			  <h1>Please Sign in</h1>
+			  <form className = {styles.signinform} onSubmit={handleLogin}>
 				<label>
 				  Username:
 				</label>
 				<br/>
-				  <input
+				  <input className={styles.textinput}
 					type="text"
 					value={username}
 					onChange={(e) => setUsername(e.target.value)}
@@ -61,14 +61,17 @@ export default function signin() {
 				<br />
 				<label>
 				  Password:
-				  <input
+				</label>
+				<br/>  
+
+				<input className={styles.textinput}
 					type="password"
 					value={password}
 					onChange={(e) => setPassword(e.target.value)}
-				  />
-				</label>
+				/>
+				
 				<br />
-				<button type="submit">Login</button>
+				<button className={styles.button} type="submit">Sign in</button>
 				{error && <p style={{ color: 'red' }}>{error}</p>}
 			  </form>
 			</div>
