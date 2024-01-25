@@ -18,6 +18,7 @@
   }
   
   .main {
+	display: flex;
 	flex-grow: 20 ;
 	padding: 0px;
   }
