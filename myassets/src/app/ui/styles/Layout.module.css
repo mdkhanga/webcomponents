@@ -14,7 +14,6 @@
 	text-align: center;
 	font-size: 40px;
 	font-weight: bold;
-	flex-grow: 1;
   }
   
   .main {
@@ -28,6 +27,5 @@
 	color: white;
 	text-align: center;
 	padding: 1rem;
-	flex-grow:1;
   }
   

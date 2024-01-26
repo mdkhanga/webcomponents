@@ -6,16 +6,35 @@
   .mydiv {
     flex: 1;
 	  background-color: #d8e4da;
+
   }
+
+  .mydiv_cols {
+    display: flex;
+    flex-direction: row ;
+    margin: 10px;
+    height: 75%;
+  }
+
+  .mydiv_cols_item {
+    background-color: #e39fa4;
+    flex-grow: 1;
+    margin: 50px;
+  }
+
 
   .mydiv_grid {
     display: grid;
     grid-template-columns: auto auto auto;
-    grid-template-rows: auto auto;
+    grid-template-rows: .8fr .8fr;
+    gap: 10px;
+    height: 75%; 
+    padding:10px;
   }
 
   .mydiv_griditem {
     background-color: #e39fa4;
+    margin:20px;
   }
 
   .center {

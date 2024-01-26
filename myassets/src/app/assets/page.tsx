@@ -16,7 +16,7 @@ export default function Assets() {
   console.log("redering the page");
   return (
     
-	<div>
+	<div className={styles.mydiv}>
 	  <MenuBar/>
     </div> 
   )
