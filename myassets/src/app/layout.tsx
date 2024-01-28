@@ -31,7 +31,7 @@ export default function RootLayout({
       <main className={styles.main}>{children}</main>
 
       <footer className={styles.footer}>
-        &copy; {new Date().getFullYear()} Your App Footer
+        &copy; {new Date().getFullYear()} HeavyDuty Software
       </footer>
     </div>
     </body>

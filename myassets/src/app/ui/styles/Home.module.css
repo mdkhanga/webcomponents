@@ -35,6 +35,11 @@
   .mydiv_griditem {
     background-color: #e39fa4;
     margin:20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
   }
 
   .center {
