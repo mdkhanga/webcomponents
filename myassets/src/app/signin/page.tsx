@@ -17,26 +17,26 @@ export default function signin() {
 	const handleLogin = async (e) => {
 		e.preventDefault();
 	
-		// Pretend login API
-		const fakeApiCall = new Promise((resolve) => {
-		  // Simulating API call delay
-		  setTimeout(() => {
-			resolve({ success: true });
-		  }, 1000);
-		});
-	
 		try {
-		  // Simulate API call
-		  const response : any = await fakeApiCall;
+		  
+		  const response = await fetch("http://localhost:8080/v1/user/signon",{
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json"
+			},
+			body: JSON.stringify({
+				username,
+				password 
+			})
+		  });
 	
-		  if (response.success) {
+		  if (response.status == 200) {
 			// On successful login, save username in a cookie
 			Cookies.set('username', username);
 	
 			// Redirect to a different page (e.g., dashboard)
 			// router.push('/dashboard');
 			router.push('/');
-			router.refresh();
 		  } else {
 			setError('Invalid username or password');
 		  }
@@ -76,8 +76,5 @@ export default function signin() {
 			  </form>
 			</div>
 		  );
-
-	
-
 
 }
