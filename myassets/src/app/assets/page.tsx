@@ -13,24 +13,40 @@ async function getAccounts() {
 
 	const username = Cookies.get('username');
 	console.log("Username" + username)
-	/*  const response = await fetch("http://localhost:8080/v1/accounts/${username}",{
+	const response = await fetch("api/accounts/manoj",{
 		method: "GET",
 		headers: {
 			"Content-Type": "application/json"
 		}	
 	});
-	return await response.json() */
+	return await response.json() 
 }
 
 export default function Assets() {
 
 	const [username, setUsername] = useState('');	
-
+	const [accounts, setAccounts] = useState([]);
+	
 	useEffect(() => {
 		
 		const val = Cookies.get('username');
 		setUsername(val);
 		console.log("Username val " + val)
+
+		let fetchAccounts = async () => {
+			const response = await fetch("http://localhost:8080/v1/accounts/account/manoj",{
+				method: "GET",
+				headers: {
+					"Content-Type": "application/json"
+				}	
+			});
+			let a = await response.json() ;
+			console.log(a);
+			setAccounts(a);
+		
+		}
+		
+		fetchAccounts();
 		
 	  }, [username]); 
 
@@ -38,12 +54,33 @@ export default function Assets() {
   
 	let url = "http://localhost:8080/v1/accounts/"+username;
 
+
+	
   console.log("redering the page");
+  console.log(JSON.stringify(accounts));
   return (
 	<div className={styles.mydiv}>
 	  <MenuBar/>
-	  {username}
-	  <br/> {url}
+	  
+	  <br/>
+	  
+		{
+			accounts.map((a: any) => (
+				<div>
+					<Link href="#"> {a.name} </Link> {a.type} {a.balance}
+
+				</div>
+
+			)) 
+
+
+		}
+
+
+	  
+	  
+	  
+
 	
     </div> 
   )
