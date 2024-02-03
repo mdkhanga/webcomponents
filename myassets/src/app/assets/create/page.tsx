@@ -7,6 +7,12 @@ import styles from '@/app/ui/styles/Signin.module.css';
 
 export default function createAsset() {
 
+	const [name, setName] = useState('');
+  	const [type, setType] = useState('');
+	const [balance, setBalance] = useState('');
+  	const [error, setError] = useState('');
+  	const router = useRouter();
+
 	const handleSubmit = (e) =>{
 		e.preventDefault();
 	}
@@ -16,27 +22,41 @@ export default function createAsset() {
 		  <h1>New Asset </h1>
 		  <form className = {styles.signinform} onSubmit={handleSubmit}>
 			<label>
-			  Username:
+			  AccountName:
 			</label>
 			<br/>
 			  <input className={styles.textinput}
 				type="text"
-				value={username}
-				onChange={(e) => setUsername(e.target.value)}
+				value={name}
+				onChange={(e) => setName(e.target.value)}
 			  />
 			<br />
+			
 			<label>
-			  Password:
+			  Type:
 			</label>
 			<br/>  
 
 			<input className={styles.textinput}
-				type="password"
-				value={password}
-				onChange={(e) => setPassword(e.target.value)}
+				type="text"
+				value={type}
+				onChange={(e) => setType(e.target.value)}
 			/>
-			
 			<br />
+
+			<label>
+			  Balance:
+			</label>
+			<br/>  
+
+			<input className={styles.textinput}
+				type="text"
+				value={balance}
+				onChange={(e) => setType(e.target.value)}
+			/>
+			<br />
+
+
 			<button className={styles.button} type="submit">Sign in</button>
 			{error && <p style={{ color: 'red' }}>{error}</p>}
 		  </form>
