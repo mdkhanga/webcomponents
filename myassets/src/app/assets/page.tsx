@@ -34,7 +34,8 @@ export default function Assets() {
 		console.log("Username val " + val)
 
 		let fetchAccounts = async () => {
-			const response = await fetch("http://localhost:8080/v1/accounts/account/manoj",{
+			// const response = await fetch("http://localhost:8080/v1/accounts/manoj",{
+			const response = await fetch("/api/accounts/manoj",{	
 				method: "GET",
 				headers: {
 					"Content-Type": "application/json"
@@ -70,18 +71,9 @@ export default function Assets() {
 					<Link href="#"> {a.name} </Link> {a.type} {a.balance}
 
 				</div>
-
 			)) 
-
-
 		}
 
-
-	  
-	  
-	  
-
-	
     </div> 
   )
 }

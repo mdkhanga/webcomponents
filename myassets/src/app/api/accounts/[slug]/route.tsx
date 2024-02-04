@@ -1,4 +1,4 @@
-export async function GET(request: Request) {
+export async function GET(request: Request, { params }) {
 	/* const { searchParams } = new URL(request.url)
 	const id = searchParams.get('id')
 	const res = await fetch(`https://data.mongodb-api.com/product/${id}`, {
@@ -10,12 +10,14 @@ export async function GET(request: Request) {
 	const product = await res.json() 
    
 	return Response.json({ product }) */
-	const response = await fetch("http://localhost:8080/v1/accounts/account/manoj",{
+	console.log(params.slug)
+	const response = await fetch("http://localhost:8080/v1/accounts/manoj",{
 		method: "GET",
 		headers: {
 			"Content-Type": "application/json"
 		}	
 	});
-	const accounts = response.json() 
+	const accounts = await response.json() 
+	console.log(JSON.stringify(accounts))
 	return Response.json(accounts);
   }
