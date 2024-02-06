@@ -11,7 +11,7 @@ export async function GET(request: Request, { params }) {
    
 	return Response.json({ product }) */
 	console.log(params.slug)
-	const response = await fetch("http://localhost:8080/v1/accounts/manoj",{
+	const response = await fetch("http://localhost:8080/v1/accounts/{params.slug}",{
 		method: "GET",
 		headers: {
 			"Content-Type": "application/json"
