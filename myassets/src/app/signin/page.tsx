@@ -6,6 +6,7 @@ import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import Cookies from 'js-cookie';
 import styles from '@/app/ui/styles/Signin.module.css';
+import { login } from '@/app/signin/login'
 
 export default function signin() {
 
@@ -17,9 +18,9 @@ export default function signin() {
 	const handleLogin = async (e) => {
 		e.preventDefault();
 	
-		try {
+		/* try {
 		  
-		  const response = await fetch("http://localhost:8080/v1/user/signon",{
+		   const response = await fetch("http://localhost:8080/v1/user/signon",{
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json"
@@ -30,7 +31,11 @@ export default function signin() {
 			})
 		  });
 	
-		  if (response.status == 200) {
+		  if (response.status == 200) { */
+
+		  const ret = await login(username, password)
+ 
+		if (ret == 200) {
 			// On successful login, save username in a cookie
 			Cookies.set('username', username);
 	
@@ -40,9 +45,9 @@ export default function signin() {
 		  } else {
 			setError('Invalid username or password');
 		  }
-		} catch (error) {
+		/* } catch (error) {
 		  setError('Error during login');
-		}
+		} */
 	};
 
 	return (
