@@ -35,11 +35,12 @@ export default function Assets() {
 
 		let fetchAccounts = async () => {
 			// const response = await fetch("http://localhost:8080/v1/accounts/manoj",{
-			const response = await fetch("/api/accounts/manoj",{	
+			const response = await fetch("/api/accounts/{username}",{	
 				method: "GET",
 				headers: {
 					"Content-Type": "application/json"
-				}	
+				},
+				next: { revalidate: 1 }		
 			});
 			let a = await response.json() ;
 			console.log(a);
