@@ -17,23 +17,8 @@ export default function signin() {
 
 	const handleLogin = async (e) => {
 		e.preventDefault();
-	
-		/* try {
-		  
-		   const response = await fetch("http://localhost:8080/v1/user/signon",{
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json"
-			},
-			body: JSON.stringify({
-				username,
-				password 
-			})
-		  });
-	
-		  if (response.status == 200) { */
 
-		  const ret = await login(username, password)
+		const ret = await login(username, password)
  
 		if (ret == 200) {
 			// On successful login, save username in a cookie
@@ -45,9 +30,7 @@ export default function signin() {
 		  } else {
 			setError('Invalid username or password');
 		  }
-		/* } catch (error) {
-		  setError('Error during login');
-		} */
+
 	};
 
 	return (
