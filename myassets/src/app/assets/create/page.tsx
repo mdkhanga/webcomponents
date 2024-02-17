@@ -1,3 +1,4 @@
+'use client'
 import React from 'react'
 import { useState } from 'react';
 import Image from 'next/image'
@@ -56,9 +57,13 @@ export default function createAsset() {
 			/>
 			<br />
 
+			<div className={styles.btncontainer}>
 
-			<button className={styles.button} type="submit">Sign in</button>
-			{error && <p style={{ color: 'red' }}>{error}</p>}
+				<button className={styles.button} type="button">Cancel</button>
+				<button className={styles.button} type="submit">Submit</button>
+				{error && <p style={{ color: 'red' }}>{error}</p>}
+
+			</div>
 		  </form>
 		</div>
 	  );

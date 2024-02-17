@@ -49,7 +49,7 @@ export default function Assets() {
   return (
 	<div className={styles.mydiv}>
 	  <MenuBar/>
-	  
+	  <Link href="/assets/create"> Create Account </Link>
 	  <br/>
 	  
 		{
