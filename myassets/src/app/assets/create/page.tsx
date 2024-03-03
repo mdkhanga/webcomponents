@@ -4,7 +4,9 @@ import { useState } from 'react';
 import Image from 'next/image'
 // import styles from './page.module.css'
 import { useRouter } from 'next/navigation'
+import { useSearchParams } from 'next/navigation'
 import styles from '@/app/ui/styles/Signin.module.css';
+import { createAccount } from '@/app/assets/create/create'
 
 export default function createAsset() {
 
@@ -13,9 +15,16 @@ export default function createAsset() {
 	const [balance, setBalance] = useState('');
   	const [error, setError] = useState('');
   	const router = useRouter();
+	const searchParams = useSearchParams();
 
-	const handleSubmit = (e) =>{
+	const handleSubmit = async (e) => {
 		e.preventDefault();
+
+		const username = searchParams.get("u") ;
+
+		await createAccount({"name" : name, "type" : type, "balance" : balance}, username);
+
+		router.push("/assets");
 	}
 
 	return (
@@ -53,7 +62,7 @@ export default function createAsset() {
 			<input className={styles.textinput}
 				type="text"
 				value={balance}
-				onChange={(e) => setType(e.target.value)}
+				onChange={(e) => setBalance(e.target.value)}
 			/>
 			<br />
 
