@@ -7,9 +7,10 @@ import { useEffect, useState } from 'react';
 import Cookies from 'js-cookie';
 import styles from '@/app/ui/styles/Home.module.css';
 import MenuBar from '@/app/ui/components/menubar';
+import Assets from '@/app/ui/components/assets';
 import { get } from 'http';
 
-export default function Assets() {
+export default function AssetsPage() {
 
 	const [username, setUsername] = useState('');	
 	const [accounts, setAccounts] = useState([]);
@@ -35,11 +36,15 @@ export default function Assets() {
 		
 		}
 		
+		
 		if (username != "" && username != undefined) {
 			fetchAccounts();
-		}
-		
+		} 
+
+
 	 }, [username]); 
+
+	 
 
 	console.log("Username" + username)
   
@@ -52,14 +57,7 @@ export default function Assets() {
 	  <Link href={`/assets/create?u=${username}`}> Create Account </Link>
 	  <br/>
 	  
-		{
-			accounts.map((a: any) => (
-				<div>
-					<Link href="#"> {a.name} </Link> {a.type} {a.balance}
-
-				</div>
-			)) 
-		}
+		<Assets accounts={accounts}/>
 
     </div> 
   )
