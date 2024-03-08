@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react';
 import Cookies from 'js-cookie';
 import SessionProvider  from "./ui/components/SessionProvider"
 import { getServerSession } from "next-auth";
+import MenuBar from '@/app/ui/components/menubar';
 
 /* export const metadata: Metadata = {
   title: 'Create Next App',
@@ -32,6 +33,7 @@ export default async function RootLayout({
       </header>
 
       <SessionProvider session={session}>
+      <MenuBar/>  
       <main className={styles.main}>{children}</main>
       </SessionProvider>
 

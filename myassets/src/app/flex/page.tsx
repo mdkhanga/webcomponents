@@ -10,7 +10,7 @@ export default function FLexDivs() {
   return (
     
     <div className={styles.mydiv}>
-      <MenuBar/>
+      
       <div className={styles.mydiv_cols}> 
 
           <div className = {styles.mydiv_cols_item}>

@@ -1,4 +1,4 @@
-'use client'
+// 'use client'
 import React from 'react'
 import Link from 'next/link'
 // import styles from './page.module.css'
@@ -9,13 +9,28 @@ import styles from '@/app/ui/styles/Home.module.css';
 import MenuBar from '@/app/ui/components/menubar';
 import Assets from '@/app/ui/components/assets';
 import { get } from 'http';
+import { getServerSession } from "next-auth";
 
-export default function AssetsPage() {
+export default async function AssetsPage() {
 
-	const [username, setUsername] = useState('');	
-	const [accounts, setAccounts] = useState([]);
+	// const [username, setUsername] = useState('');	
+	// const [accounts, setAccounts] = useState([]);
+
+	const session = await getServerSession();
+
+	const username = session?.user?.name ;
+
+	const response = await fetch(`${process.env.APPHOME}/api/accounts/${username}`,{	
+		method: "GET",
+		headers: {
+			"Content-Type": "application/json"
+		},
+		next: { revalidate: 1 }		
+	});
+
+	let accounts = await response.json() ;
 	
-	useEffect(() => {
+	/* useEffect(() => {
 		
 		const val = Cookies.get('username');
 		setUsername(val);
@@ -42,7 +57,7 @@ export default function AssetsPage() {
 		} 
 
 
-	 }, [username]); 
+	 }, [username]); */
 
 	 
 
@@ -53,7 +68,7 @@ export default function AssetsPage() {
   console.log(JSON.stringify(accounts));
   return (
 	<div className={styles.mydiv}>
-	  <MenuBar/>
+	  
 	  <Link href={`/assets/create?u=${username}`}> Create Account </Link>
 	  <br/>
 	  
