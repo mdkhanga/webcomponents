@@ -1,4 +1,3 @@
-'use client'
 import styles from '@/app/ui/styles/Home.module.css';
 import MenuBar from '@/app/ui/components/menubar';
 

@@ -1,4 +1,4 @@
-// 'use client'
+'use client'
 import React from 'react'
 import Link from 'next/link'
 // import styles from './page.module.css'
@@ -10,17 +10,21 @@ import MenuBar from '@/app/ui/components/menubar';
 import Assets from '@/app/ui/components/assets';
 import { get } from 'http';
 import { getServerSession } from "next-auth";
+import { useSession } from "next-auth/react"
 
-export default async function AssetsPage() {
+export default function AssetsPage() {
 
 	// const [username, setUsername] = useState('');	
-	// const [accounts, setAccounts] = useState([]);
 
-	const session = await getServerSession();
+	const [accounts, setAccounts] = useState([]);
+
+	// const session = await getServerSession();
+
+	const { data: session, status } = useSession() ;
 
 	const username = session?.user?.name ;
 
-	const response = await fetch(`${process.env.APPHOME}/api/accounts/${username}`,{	
+	/* const response = await fetch(`${process.env.APPHOME}/api/accounts/${username}`,{	
 		method: "GET",
 		headers: {
 			"Content-Type": "application/json"
@@ -28,12 +32,12 @@ export default async function AssetsPage() {
 		next: { revalidate: 1 }		
 	});
 
-	let accounts = await response.json() ;
+	let accounts = await response.json() ; */
 	
-	/* useEffect(() => {
+	useEffect(() => {
 		
 		const val = Cookies.get('username');
-		setUsername(val);
+	//	setUsername(val);
 		console.log("Username val " + val)
 
 		let fetchAccounts = async () => {
@@ -46,22 +50,19 @@ export default async function AssetsPage() {
 				next: { revalidate: 1 }		
 			});
 			let a = await response.json() ;
-			console.log(a);
 			setAccounts(a);
-		
+	
 		}
 		
-		
-		if (username != "" && username != undefined) {
+		// if (username != "" && username != undefined) {
 			fetchAccounts();
-		} 
+		// } 
 
 
-	 }, [username]); */
+	 }, []); 
 
 	 
 
-	console.log("Username" + username)
   
 	
   console.log("redering the page");

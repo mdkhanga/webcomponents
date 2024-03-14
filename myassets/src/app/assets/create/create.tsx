@@ -13,9 +13,6 @@ export async function createAccount(account: any, username: any)  {
 		body: JSON.stringify(account),
 		cache: "no-store"
 	  });
-
-	  console.log(response);
-	  console.log(response.status)
 	  return response.status
 
 }
