@@ -24,21 +24,10 @@ export default function AssetsPage() {
 
 	const username = session?.user?.name ;
 
-	/* const response = await fetch(`${process.env.APPHOME}/api/accounts/${username}`,{	
-		method: "GET",
-		headers: {
-			"Content-Type": "application/json"
-		},
-		next: { revalidate: 1 }		
-	});
-
-	let accounts = await response.json() ; */
 	
 	useEffect(() => {
 		
-		const val = Cookies.get('username');
-	//	setUsername(val);
-		console.log("Username val " + val)
+
 
 		let fetchAccounts = async () => {
 			
@@ -62,11 +51,6 @@ export default function AssetsPage() {
 	 }, []); 
 
 	 
-
-  
-	
-  console.log("redering the page");
-  console.log(JSON.stringify(accounts));
   return (
 	<div className={styles.mydiv}>
 	  

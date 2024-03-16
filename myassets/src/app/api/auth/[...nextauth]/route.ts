@@ -3,6 +3,9 @@ import Credentials from 'next-auth/providers/credentials';
 
 
 export const authOptions = {	
+	pages: {
+		signIn: '/signin'
+	  }	,
   secret: process.env.NEXTAUTH_SECRET,
   providers: [
     Credentials({

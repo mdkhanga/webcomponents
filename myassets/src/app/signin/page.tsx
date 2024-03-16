@@ -7,6 +7,8 @@ import { useRouter } from 'next/navigation'
 import Cookies from 'js-cookie';
 import styles from '@/app/ui/styles/Signin.module.css';
 import { login } from '@/app/signin/login'
+import { signIn} from "next-auth/react";
+
 
 export default function signin() {
 
@@ -18,7 +20,7 @@ export default function signin() {
 	const handleLogin = async (e) => {
 		e.preventDefault();
 
-		const ret = await login(username, password)
+		/* const ret = await login(username, password)
  
 		if (ret == 200) {
 			// On successful login, save username in a cookie
@@ -30,7 +32,15 @@ export default function signin() {
 		  } else {
 			setError('Invalid username or password');
 		  }
-
+		  */
+		 let ret = await signIn('credentials', { redirect: false, username: username, password: password })
+		 // router.push('/');
+		 // router.refresh();
+		 // window.location.href = "http://localhost:3000";
+		 const url: string = `${process.env.NEXT_PUBLIC_APPHOME}`;
+		 console.log(url);
+		 window.location.href = url ; 
+		 
 	};
 
 	return (
