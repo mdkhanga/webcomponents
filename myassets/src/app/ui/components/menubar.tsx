@@ -35,12 +35,11 @@ export default function MenuBar() {
 
    }, [username, router]); 
    
-   const handleSignoff = (e) => {
+   const handleSignoff = async (e) => {
 	 e.preventDefault();
-	 Cookies.remove('username');
-	 setUsername('')
-	 signOut();
-	 router.push('/');
+	 const url: string = `${process.env.NEXT_PUBLIC_APPHOME}/signin`;
+	 await signOut({ callbackUrl: url });
+
    }
 
 	return (

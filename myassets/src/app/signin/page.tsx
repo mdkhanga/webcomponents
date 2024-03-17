@@ -38,7 +38,6 @@ export default function signin() {
 		 // router.refresh();
 		 // window.location.href = "http://localhost:3000";
 		 const url: string = `${process.env.NEXT_PUBLIC_APPHOME}`;
-		 console.log(url);
 		 window.location.href = url ; 
 		 
 	};

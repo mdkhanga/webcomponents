@@ -1,5 +1,6 @@
 import NextAuth from "next-auth";
 import Credentials from 'next-auth/providers/credentials';
+import { login } from '@/app/signin/login'
 
 
 export const authOptions = {	
@@ -20,21 +21,21 @@ export const authOptions = {
     	},
 		
 		async authorize(credentials) {
-			const user = { id: "1", name: "manoj", email: "jsmith@example.com" }
 			console.log("from next auth "+ credentials?.username) 
 
-			if (credentials?.username === "manoj" || credentials?.username === "john") {
+			const username = 	credentials?.username || "";
+			const password = credentials?.password || "" ;
+
+			let ret = await login(username, password) ;
+
+			if (ret == 200) {
+				return  { name : username, email : "test@email.com"}
+			}
+
+			/* if (credentials?.username === "manoj" || credentials?.username === "john") {
 				return { name : credentials.username , email : "test@email.com"}
 			} else {
 				return null;
-			}
-
-			/* if (user) {
-			  // Any object returned will be saved in `user` property of the JWT
-			  return user
-			} else {
-			  // If you return null then an error will be displayed advising the user to check their details.
-			  return null
 			} */
 		}	
 	  }),
