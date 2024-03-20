@@ -1,4 +1,4 @@
-'use client'
+// 'use client'
 import React from 'react'
 import Link from 'next/link'
 // import styles from './page.module.css'
@@ -12,20 +12,15 @@ import { get } from 'http';
 import { getServerSession } from "next-auth";
 import { useSession } from "next-auth/react"
 
-export default function AssetsPage() {
+export default async function AssetsPage() {
 
-	// const [username, setUsername] = useState('');	
 
-	const [accounts, setAccounts] = useState([]);
-
-	// const session = await getServerSession();
-
-	const { data: session, status } = useSession() ;
-
+	// const [accounts, setAccounts] = useState([]);
+	const session = await getServerSession() ;
 	const username = session?.user?.name ;
 
 	
-	useEffect(() => {
+	/* useEffect(() => {
 		
 
 
@@ -48,9 +43,17 @@ export default function AssetsPage() {
 		// } 
 
 
-	 }, []); 
+	 }, []); */
 
-	 
+		const response = await fetch(`${process.env.APPHOME}/api/accounts/${username}`,{	
+			method: "GET",
+			headers: {
+				"Content-Type": "application/json"
+			},
+			cache: 'no-store' 
+		});
+		let accounts = await response.json() ;
+		
   return (
 	<div className={styles.mydiv}>
 	  

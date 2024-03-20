@@ -24,7 +24,7 @@ export default function createAsset() {
 
 		await createAccount({"name" : name, "type" : type, "balance" : balance}, username);
 
-		router.push("/assets");
+		// router.push("/assets");
 	}
 
 	return (
