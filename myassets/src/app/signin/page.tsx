@@ -37,8 +37,12 @@ export default function signin() {
 		 // router.push('/');
 		 // router.refresh();
 		 // window.location.href = "http://localhost:3000";
-		 const url: string = `${process.env.NEXT_PUBLIC_APPHOME}`;
-		 window.location.href = url ; 
+		 if (ret != undefined && ret.ok) {
+		  const url: string = `${process.env.NEXT_PUBLIC_APPHOME}`;
+		  window.location.href = url ; 
+		 } else {
+			setError("Invalid username or password !!!")
+		 }
 		 
 	};
 
