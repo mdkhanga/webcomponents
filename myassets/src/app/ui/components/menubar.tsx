@@ -47,8 +47,11 @@ export default function MenuBar() {
         <li><Link href="/">Home</Link></li>
         <li><Link href="/assets">Assets</Link></li>
         <li><Link href="/flex">Contact</Link></li>
-        <li style={{float : 'right'}}><Link href="" onClick={handleSignoff}> Signoff </Link></li>
-        <li style={{float : 'right'}}><Link href=""> Hi {username} </Link></li>
+		{ (username != "" && username != undefined) &&
+        <li style={{float : 'right'}}><Link href="" onClick={handleSignoff}> Signoff </Link></li> }
+        
+		{ (username != "" && username != undefined) && <li style={{float : 'right'}}><Link href=""> Hi {username} </Link></li> }
+		
       </ul>
 	)
 }
