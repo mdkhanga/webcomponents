@@ -27,6 +27,12 @@ export default function createAsset() {
 		// router.push("/assets");
 	}
 
+	const handleCancel = async (e) => {
+		e.preventDefault();
+
+		router.push("/assets");
+	}
+
 	return (
 		<div className ={styles.signin}>
 		  <h1>New Asset </h1>
@@ -68,7 +74,7 @@ export default function createAsset() {
 
 			<div className={styles.btncontainer}>
 
-				<button className={styles.button} type="button">Cancel</button>
+				<button className={styles.button} type="button" onClick={handleCancel}>Cancel</button>
 				<button className={styles.button} type="submit">Submit</button>
 				{error && <p style={{ color: 'red' }}>{error}</p>}
 
