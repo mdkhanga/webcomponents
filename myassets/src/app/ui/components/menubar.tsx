@@ -16,8 +16,6 @@ export default function MenuBar() {
 	
 	const [username, setUsername] = useState('');
 
-
-	 console.log(session)
 	
    useEffect(() => {
 	 /* const val = Cookies.get('username');

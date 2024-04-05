@@ -23,7 +23,6 @@ export async function createAccount(formData: FormData)  {
 		body: JSON.stringify(account),
 		cache: "no-store"
 	  });
-	  // revalidatePath(`${process.env.APPHOME}/assets`, "page") ;
 	  revalidatePath("/");
       redirect(`${process.env.APPHOME}/assets`);
 

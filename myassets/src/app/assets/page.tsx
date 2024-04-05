@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react';
 import Cookies from 'js-cookie';
 import styles from '@/app/ui/styles/Home.module.css';
+import styleAssets from '@/app/ui/styles/Assets.module.css';
 import MenuBar from '@/app/ui/components/menubar';
 import Assets from '@/app/ui/components/assets';
 import { get } from 'http';
@@ -57,7 +58,7 @@ export default async function AssetsPage() {
   return (
 	<div className={styles.mydiv}>
 	  
-	  <Link href={`/assets/create?u=${username}`}> Create Account </Link>
+	  <Link className={styleAssets.link_button} href={`/assets/create?u=${username}`}> Create Account </Link>
 	  <br/>
 	  
 		<Assets accounts={accounts}/>
