@@ -54,15 +54,34 @@ export default async function AssetsPage() {
 			cache: 'no-store' 
 		});
 		let accounts = await response.json() ;
+		let totals = sum(accounts);
+
+		// Get the current month and year
+		const currentDate = new Date();
+		const currentMonth = currentDate.toLocaleString('default', { month: 'long' });
+		const currentYear = currentDate.getFullYear();
 		
   return (
 	<div className={styles.mydiv}>
 	  
 	  <Link className={styleAssets.link_button} href={`/assets/create?u=${username}`}> Create Account </Link>
+	  <span className={styleAssets.text}> {currentMonth} {currentYear}</span>
+	  <span className={styleAssets.text}>Total balance : ${totals} </span>	
+	  
 	  <br/>
 	  
-		<Assets accounts={accounts}/>
+		<Assets accounts={accounts} />
 
     </div> 
   )
+}
+
+function sum(accounts : any[]): number {
+
+	let total = 0 ;
+	accounts.map((a: any) => {
+		total = total + a.balance;
+	});
+
+	return total ;
 }
