@@ -55,6 +55,10 @@ export default async function AssetsPage() {
 		});
 		let accounts = await response.json() ;
 		let totals = sum(accounts);
+		const formattedTotals = new Intl.NumberFormat('en-US', {
+			style: 'currency',
+			currency: 'USD'
+		}).format(totals);
 
 		// Get the current month and year
 		const currentDate = new Date();
@@ -66,7 +70,7 @@ export default async function AssetsPage() {
 	  
 	  <Link className={styleAssets.link_button} href={`/assets/create?u=${username}`}> Create Account </Link>
 	  <span className={styleAssets.text}> {currentMonth} {currentYear}</span>
-	  <span className={styleAssets.text}>Total balance : ${totals} </span>	
+	  <span className={styleAssets.text}>Total balance : {formattedTotals} </span>	
 	  
 	  <br/>
 	  

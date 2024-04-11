@@ -24,7 +24,10 @@ export default function Assets({accounts} : {accounts: any[]}) {
                <tr>
                <td className={styles.asset_td}><Link href="#"> {a.name} </Link></td>
                <td className={styles.asset_td}>{a.type}</td>
-               <td className={styles.asset_td}> {a.balance}</td>
+               <td className={styles.asset_td}> {new Intl.NumberFormat('en-US', {
+                                style: 'currency',
+                                currency: 'USD'
+                            }).format(a.balance)}</td>
                </tr>
           
               
