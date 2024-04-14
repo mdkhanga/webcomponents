@@ -1,0 +1,16 @@
+.mtable {
+	width: 100%;
+	border-collapse: collapse;
+	margin-top: 20px;
+}
+.mtd {
+	padding: 10px;
+	border: 1px solid #ddd;
+	text-align: left;
+}
+.mth {
+	padding: 10px;
+	border: 1px solid #ddd;
+	text-align: left;
+	background-color: #f2f2f2;
+}
