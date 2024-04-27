@@ -1,5 +1,6 @@
 import styles from '@/app/ui/styles/Common.module.css';
 import stylesHome from '@/app/ui/styles/Home.module.css';
+import { getServerSession } from "next-auth";
 
 async function getBalances(username: string) {
 	let url = `http://localhost:8080/v1/mbalances/${username}/2024`
@@ -25,7 +26,14 @@ async function getBalances(username: string) {
 
 export default async function Balances() {
 
-	let bals: any[] = await getBalances('manoj');
+	const session = await getServerSession() ;
+	const username = session?.user?.name ;
+
+	let  bals: any[] = [];
+	
+	if (username !== "" && username !== undefined && username != null) {
+		bals = await getBalances(username);
+	}
 
 	return (
 	  
