@@ -20,52 +20,28 @@ export default async function AssetsPage() {
 	const session = await getServerSession() ;
 	const username = session?.user?.name ;
 
-	
-	/* useEffect(() => {
-		
-
-
-		let fetchAccounts = async () => {
-			
-			const response = await fetch(`/api/accounts/${username}`,{	
-				method: "GET",
-				headers: {
-					"Content-Type": "application/json"
-				},
-				next: { revalidate: 1 }		
-			});
-			let a = await response.json() ;
-			setAccounts(a);
-	
-		}
-		
-		// if (username != "" && username != undefined) {
-			fetchAccounts();
-		// } 
-
-
-	 }, []); */
-
-		const response = await fetch(`${process.env.APPHOME}/api/accounts/${username}`,{	
-			method: "GET",
-			headers: {
+	const response = await fetch(`${process.env.APPHOME}/api/accounts/${username}`,{	
+		method: "GET",
+		headers: {
 				"Content-Type": "application/json"
 			},
 			cache: 'no-store' 
 		});
-		let accounts = await response.json() ;
-		let totals = sum(accounts);
-		const formattedTotals = new Intl.NumberFormat('en-US', {
-			style: 'currency',
-			currency: 'USD'
-		}).format(totals);
+		
+	let accounts = await response.json() ;
+	let totals = sum(accounts);
+		
+	const formattedTotals = new Intl.NumberFormat('en-US', {
+		style: 'currency',
+		currency: 'USD'
+	}).format(totals);
 
 		// Get the current month and year
 		const currentDate = new Date();
 		const currentMonth = currentDate.toLocaleString('default', { month: 'long' });
 		const currentYear = currentDate.getFullYear();
 		
-  return (
+    return (
 	<div className={styles.mydiv}>
 	  
 	  <Link className={styleAssets.link_button} href={`/assets/create?u=${username}`}> Create Account </Link>

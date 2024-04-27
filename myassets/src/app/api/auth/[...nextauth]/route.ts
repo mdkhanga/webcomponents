@@ -41,7 +41,7 @@ export const authOptions = {
 	  }),
   ],
   session: {
-	maxAge: 60
+	maxAge: 600
   }
 };
 

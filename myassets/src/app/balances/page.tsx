@@ -1,6 +1,7 @@
 import styles from '@/app/ui/styles/Common.module.css';
 import stylesHome from '@/app/ui/styles/Home.module.css';
 import { getServerSession } from "next-auth";
+import Link from 'next/link'
 
 async function getBalances(username: string) {
 	let url = `http://localhost:8080/v1/mbalances/${username}/2024`
@@ -39,11 +40,13 @@ export default async function Balances() {
 	  
 	  <div className={stylesHome.mydiv}>
 		
-		Welcome to the balances page
+		<Link className={styles.link_button} href={`/balances/create?u=${username}`}> Create Balances </Link>
 
 		<table className={styles.mtable}>
 			<thead>
 				<tr>
+				<th className={styles.mth}> Action </th>		
+				<th className={styles.mth}>Month</th>	
 			   <th className={styles.mth}>Month</th>
                <th className={styles.mth}>Year </th>
 			   {
@@ -55,6 +58,7 @@ export default async function Balances() {
 			</thead>
 			<tbody>
 			<tr>
+				<td className={styles.mtd}> <Link className={styles.link_button_cell} href={`/balances/edit?u=${username}`}> Edit </Link></td>
                <td className={styles.mtd}> 4</td>
                <td className={styles.mtd}> 2024</td>
 
