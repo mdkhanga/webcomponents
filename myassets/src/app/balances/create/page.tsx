@@ -37,11 +37,6 @@ export default async function CreateBalance() {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 	
-		// const username = searchParams.get("u") ;
-	
-		// await createAccount({"name" : name, "type" : type, "balance" : balance}, username);
-	
-		// router.push("/assets");
 	}
 	
 	const handleCancel = async (e) => {
