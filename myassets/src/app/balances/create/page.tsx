@@ -1,6 +1,7 @@
 import styles from '@/app/ui/styles/Common.module.css';
 import { getServerSession } from "next-auth";
 import { useRouter } from 'next/navigation'
+import CreateBalanceForm from "@/app/balances/create/createform"
 
 
 async function getAccountNames(username: string) {
@@ -23,7 +24,7 @@ async function getAccountNames(username: string) {
 
 export default async function CreateBalance() {
 
-	const router = useRouter();
+	// const router = useRouter();
 
 	const session = await getServerSession() ;
 	const username = session?.user?.name ;
@@ -42,49 +43,14 @@ export default async function CreateBalance() {
 	const handleCancel = async (e) => {
 		e.preventDefault();
 	
-		router.push("/assets");
+		// router.push("/assets");
 	}
 
 	return (
 
 		<div>
-			 <h1>New Asset </h1>
-		  <form className = {styles.signinform} onSubmit={handleSubmit}>
-			
-			{
-			
-			names.map((name: string) => (
+			 <CreateBalanceForm names={[]}/> 
 
-			<div>
-			<label>
-			  {name}:
-			</label>
-			<br/>
-			  <input className={styles.textinput}
-				type="text"
-				value={name}
-				// onChange={(e) => setName(e.target.value)}
-			  />
-			<br />
-			
-			<label>
-			  Type:
-			</label>
-			<br/>  
-
-			</div>
-
-			))
-			}
-
-			<div className={styles.btncontainer}>
-
-				<button className={styles.button} type="button" onClick={handleCancel}>Cancel</button>
-				<button className={styles.button} type="submit">Submit</button>
-				{error && <p style={{ color: 'red' }}>{error}</p>}
-
-			</div>
-		  </form>
 		</div>
 
 	)
