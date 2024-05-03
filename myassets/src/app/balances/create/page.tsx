@@ -6,6 +6,7 @@ import CreateBalanceForm from "@/app/balances/create/createform"
 
 async function getAccountNames(username: string) {
 	let url = `http://localhost:8080/v1/accounts/names/${username}`
+	console.log(url)
 	const res = await fetch(url,{	
 		method: "GET",
 		headers: {
@@ -49,7 +50,7 @@ export default async function CreateBalance() {
 	return (
 
 		<div>
-			 <CreateBalanceForm names={[]}/> 
+			 <CreateBalanceForm names={names}/> 
 
 		</div>
 
