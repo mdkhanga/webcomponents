@@ -49,10 +49,10 @@ export default async function CreateBalance() {
 
 	return (
 
-		<div>
+		
 			 <CreateBalanceForm names={names}/> 
 
-		</div>
+		
 
 	)
 

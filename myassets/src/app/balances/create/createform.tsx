@@ -8,9 +8,9 @@ export default function CreateBalanceForm({names}: {names: string[]}) {
 
 	return (
 
-		<div>
+		<div className = {styles.formcontainer}>
 
-			<form className = {styles.signinform} action={createMonthlyBalances}>
+			<form className = {styles.form} action={createMonthlyBalances}>
 			
 			{
 			
@@ -28,11 +28,7 @@ export default function CreateBalanceForm({names}: {names: string[]}) {
 			  />
 			<br />
 			
-			<label>
-			  Type:
-			</label>
-			<br/>  
-
+	
 			</div>
 
 			))
