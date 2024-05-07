@@ -9,7 +9,8 @@ export default function CreateBalanceForm({names}: {names: string[]}) {
 	return (
 
 		<div className = {styles.formcontainer}>
-
+			
+			<h1>New Asset </h1>
 			<form className = {styles.form} action={createMonthlyBalances}>
 			
 			{

@@ -49,9 +49,9 @@ export default async function CreateBalance() {
 
 	return (
 
-		
+			
+				
 			 <CreateBalanceForm names={names}/> 
-
 		
 
 	)
