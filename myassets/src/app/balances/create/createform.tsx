@@ -1,10 +1,23 @@
+"use client"
 import styles from '@/app/ui/styles/Common.module.css';
-import {createMonthlyBalances, handleCancel} from '@/app/balances/create/createbalance';
+import {createMonthlyBalances} from '@/app/balances/create/createbalance';
 import React from 'react'
+import { useRouter } from 'next/navigation'
+
+
+
 
 export default function CreateBalanceForm({names}: {names: string[]}) {
 
 	let error = ""
+
+	const router = useRouter();
+
+	const handleCancel = async (e) => {
+		e.preventDefault();
+
+		router.push("/balances");
+	}
 
 	return (
 
@@ -22,9 +35,8 @@ export default function CreateBalanceForm({names}: {names: string[]}) {
 			  {name}:
 			</label>
 			<br/>
-			  <input className={styles.textinput}
+			  <input className={styles.textinput} name={name}
 				type="text"
-				value={name}
 				// onChange={(e) => setName(e.target.value)}
 			  />
 			<br />
