@@ -1,8 +1,8 @@
-"use client"
 import styles from '@/app/ui/styles/Common.module.css';
 import {createMonthlyBalances} from '@/app/balances/create/createbalance';
 import React from 'react'
 import { useRouter } from 'next/navigation'
+import Link from 'next/link';
 
 
 
@@ -11,13 +11,6 @@ export default function CreateBalanceForm({names}: {names: string[]}) {
 
 	let error = ""
 
-	const router = useRouter();
-
-	const handleCancel = async (e) => {
-		e.preventDefault();
-
-		router.push("/balances");
-	}
 
 	return (
 
@@ -39,6 +32,10 @@ export default function CreateBalanceForm({names}: {names: string[]}) {
 				type="text"
 				// onChange={(e) => setName(e.target.value)}
 			  />
+			  <input name={name+"_id"}
+				type="hidden" value="12"
+				
+			  />
 			<br />
 			
 	
@@ -49,8 +46,9 @@ export default function CreateBalanceForm({names}: {names: string[]}) {
 
 			<div className={styles.btncontainer}>
 
-				<button className={styles.button} type="button" onClick={handleCancel}>Cancel</button>
+				<Link className={styles.link_button_cancel} href="/balances"> Cancel </Link>
 				<button className={styles.button} type="submit">Submit</button>
+				
 				{error && <p style={{ color: 'red' }}>{error}</p>}
 
 			</div>

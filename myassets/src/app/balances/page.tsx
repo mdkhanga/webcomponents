@@ -47,7 +47,6 @@ export default async function Balances() {
 				<tr>
 				<th className={styles.mth}> Action </th>		
 				<th className={styles.mth}>Month</th>	
-			   <th className={styles.mth}>Month</th>
                <th className={styles.mth}>Year </th>
 			   {
 			   	bals.map((b: any) => (
