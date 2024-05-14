@@ -1,15 +1,16 @@
 import styles from '@/app/ui/styles/Common.module.css';
 import {createMonthlyBalances} from '@/app/balances/create/createbalance';
 import React from 'react'
-import { useRouter } from 'next/navigation'
 import Link from 'next/link';
 
 
 
 
-export default function CreateBalanceForm({names}: {names: string[]}) {
+export default function CreateBalanceForm({accounts}: {accounts: any[]}) {
 
 	let error = ""
+
+	
 
 
 	return (
@@ -21,19 +22,18 @@ export default function CreateBalanceForm({names}: {names: string[]}) {
 			
 			{
 			
-			names.map((name: string) => (
+			accounts.map((account: any) => (
 
 			<div>
 			<label>
-			  {name}:
+			  {account.name}:
 			</label>
 			<br/>
-			  <input className={styles.textinput} name={name}
-				type="text"
-				// onChange={(e) => setName(e.target.value)}
+			  <input className={styles.textinput} name={account.name}
+				type="text" placeholder={account.balance}
 			  />
-			  <input name={name+"_id"}
-				type="hidden" value="12"
+			  <input name={account.name+"_id"}
+				type="hidden" value={account.id}
 				
 			  />
 			<br />

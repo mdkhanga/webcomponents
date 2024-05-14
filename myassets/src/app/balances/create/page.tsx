@@ -4,8 +4,8 @@ import { useRouter } from 'next/navigation'
 import CreateBalanceForm from "@/app/balances/create/createform"
 
 
-async function getAccountNames(username: string) {
-	let url = `http://localhost:8080/v1/accounts/names/${username}`
+async function getAccounts(username: string) {
+	let url = `http://localhost:8080/v1/accounts/${username}`
 	console.log(url)
 	const res = await fetch(url,{	
 		method: "GET",
@@ -30,30 +30,14 @@ export default async function CreateBalance() {
 	const session = await getServerSession() ;
 	const username = session?.user?.name ;
 
-	let  names: any[] = [];
+	let  accounts: any[] = [];
 	
 	if (username !== "" && username !== undefined && username != null) {
-		names = await getAccountNames(username);
+		accounts = await getAccounts(username);
 	}
 
-	const handleSubmit = async (e) => {
-		e.preventDefault();
-	
-	}
-	
-	const handleCancel = async (e) => {
-		e.preventDefault();
-	
-		// router.push("/assets");
-	}
-
-	return (
-
-			
-				
-			 <CreateBalanceForm names={names}/> 
-		
-
+	return (	
+			 <CreateBalanceForm accounts={accounts}/> 
 	)
 
 
