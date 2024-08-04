@@ -24,15 +24,41 @@ async function getBalances(username: string) {
 	return await res.json()
   }
 
+  async function getAccounts(username: string) {
+	let url = `http://localhost:8080/v1/accounts/${username}`
+	console.log(url)
+	const res = await fetch(url,{	
+		method: "GET",
+		headers: {
+			"Content-Type": "application/json"
+		},
+		cache: 'no-store' 
+	})
+	// The return value is *not* serialized
+	// You can return Date, Map, Set, etc.
+   
+	if (!res.ok) {
+	  // This will activate the closest `error.js` Error Boundary
+	  throw new Error('Failed to fetch data')
+	}
+    
+	return await res.json()
+  }
+
 export default async function Balances() {
 
 	const session = await getServerSession() ;
 	const username = session?.user?.name ;
 
 	let  bals: any[] = [];
+	let accounts: any[] = [];
 	
 	if (username !== "" && username !== undefined && username != null) {
 		bals = await getBalances(username);
+	}
+
+	if (username !== "" && username !== undefined && username != null) {
+		accounts = await getAccounts(username);
 	}
 
 	return (
@@ -48,24 +74,30 @@ export default async function Balances() {
 				<th className={styles.mth}>Month</th>	
                <th className={styles.mth}>Year </th>
 			   {
-			   	bals.map((b: any) => (
-               		<th className={styles.mth}>{b.accountname}</th>
+			   	accounts.map((a: any) => (
+               		<th className={styles.mth}>{a.name}</th>
 			    	))
 			   }
 				</tr>
 			</thead>
 			<tbody>
-			<tr>
-				<td className={styles.mtd}> <Link className={styles.link_button_cell} href={`/balances/edit?u=${username}`}> Edit </Link></td>
-               <td className={styles.mtd}> 4</td>
-               <td className={styles.mtd}> 2024</td>
+			{Array.from({ length: 12 }, (_, i) => i + 1).map(month => {
+                        const listbal = bals[month];
+                        if (!listbal) {
+                            return null; // Continue to the next month if there are no balances
+                        }
 
-			   {
-				bals.map((b: any) => (
-               <td className={styles.mtd}> {b.balance} </td>
-			   ))
-				}
-               </tr>
+                        return (
+                            <tr key={month}>
+								<td className={styles.mtd}> <Link className={styles.link_button_cell} href={`/balances/edit?u=${username}`}> Edit </Link></td>
+                                <td>{month}</td>
+								<td> 2024</td>
+                                {listbal.map((balance, index) => (
+                                    <td key={index}>{balance.balance}</td>
+                                ))}
+                            </tr>
+                        );
+                    })}
 
 			</tbody>
 
