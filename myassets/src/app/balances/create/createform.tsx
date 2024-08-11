@@ -1,3 +1,4 @@
+"use client"
 import styles from '@/app/ui/styles/Common.module.css';
 import {createMonthlyBalances} from '@/app/balances/create/createbalance';
 import React from 'react'
@@ -26,7 +27,7 @@ export default function CreateBalanceForm({accounts}: {accounts: any[]}) {
 			</label>
 			<br/>
 			  <input className={styles.textinput} name='year'
-				type="text" placeholder='2024'
+				type="text" placeholder='2024' required
 			  />
 			<br />
 			</div>
@@ -37,7 +38,7 @@ export default function CreateBalanceForm({accounts}: {accounts: any[]}) {
 			</label>
 			<br/>
 			  <input className={styles.textinput} name='month'
-				type="text" placeholder='1'
+				type="text" placeholder='1' required
 			  />
 			<br />
 			</div>

@@ -89,7 +89,7 @@ export default async function Balances() {
 
                         return (
                             <tr key={month}>
-								<td className={styles.mtd}> <Link className={styles.link_button_cell} href={`/balances/edit?u=${username}`}> Edit </Link></td>
+								<td className={styles.mtd}> <Link className={styles.link_button_cell} href={`/balances/edit?u=${username}&y=2024&m=${month}`}> Edit </Link></td>
                                 <td>{month}</td>
 								<td> 2024</td>
                                 {listbal.map((balance, index) => (
