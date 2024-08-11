@@ -2,7 +2,7 @@
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
-export async function createMonthlyBalances(formData: FormData) {
+export async function createMonthlyBalances(accounts: any[], formData: FormData) {
 
 	console.log("Create Monthly balances called")
 	const formDataEntries = Array.from(formData.entries());
@@ -14,6 +14,7 @@ export async function createMonthlyBalances(formData: FormData) {
     // Create a map to store the balances
     const balanceMap = new Map();
 
+	/*
   	// Iterate over the formData to construct the balance objects
   	for (const [key, value] of formData) {
     	if (key.endsWith('_id')) {
@@ -34,12 +35,32 @@ export async function createMonthlyBalances(formData: FormData) {
     		}
   	}
 
+	*/
+
+	const month = formData.get("month")
+	const year = formData.get("year")
+
+	accounts.map((account: any) => (
+
+		balances.push({
+			accountid: account.id,
+			accountname: account.name,
+			balance : formData.get(account.name),
+			year : year,
+			month: month
+		})
+
+	))
+
 // Convert the map to an array of balance objects
-	for (const balance of balanceMap.values()) {
+	/* for (const balance of balanceMap.values()) {
     	if (balance.accountid) {
       		balances.push(balance);
     	}
-  	}
+  	} */
+
+	console.log(JSON.stringify(balances))
+	
 
   // Post the balances to the specified endpoint
   	try {

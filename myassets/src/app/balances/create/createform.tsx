@@ -6,19 +6,42 @@ import Link from 'next/link';
 
 
 
+
 export default function CreateBalanceForm({accounts}: {accounts: any[]}) {
 
 	let error = ""
 
-	
-
+	const createMonthlyBalancesWithAccounts = createMonthlyBalances.bind(null, accounts)
 
 	return (
 
 		<div className = {styles.formcontainer}>
 			
-			<h1>New Asset </h1>
-			<form className = {styles.form} action={createMonthlyBalances}>
+			<h1>New Monthly Balance</h1>
+			<form className = {styles.form} action={createMonthlyBalancesWithAccounts}>
+
+			<div>
+			<label>
+			  Year:
+			</label>
+			<br/>
+			  <input className={styles.textinput} name='year'
+				type="text" placeholder='2024'
+			  />
+			<br />
+			</div>
+
+			<div>
+			<label>
+			  Month:
+			</label>
+			<br/>
+			  <input className={styles.textinput} name='month'
+				type="text" placeholder='1'
+			  />
+			<br />
+			</div>
+
 			
 			{
 			
@@ -57,8 +80,6 @@ export default function CreateBalanceForm({accounts}: {accounts: any[]}) {
 
 
 	)
-
-
 
 
 }
